@@ -15,8 +15,13 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
+<<<<<<< Updated upstream:public/js/login.js
         //document.location.replace('/profile');
         alert('login successful');
+=======
+        alert('login successful');
+        document.location.replace('/');
+>>>>>>> Stashed changes:public/login.js
       } else {
         alert(response.statusText);
       }
