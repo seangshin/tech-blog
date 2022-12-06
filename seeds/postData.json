@@ -1,0 +1,17 @@
+[
+    {
+      "name": "TV",
+      "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing.",
+      "price": "800"
+    },
+    {
+        "name": "Laptop",
+        "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing.",
+        "price": "400"
+    },
+    {
+        "name": "Shoes",
+        "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing.",
+        "price": "50"
+    }
+  ]
