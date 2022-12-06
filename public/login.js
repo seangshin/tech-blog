@@ -38,7 +38,8 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/');
+        alert('sign up successful');
       } else {
         alert(response.statusText);
       }
