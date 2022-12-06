@@ -6,20 +6,26 @@ const routes = require('./controllers');
 //Import express-handlebars
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
-//const session = require('express-session');
-
-//import sequelize connection
-const sequelize = require('./config/connection');
+const session = require('express-session');
 
 //Set up for express app
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-//Set Handlebars.js as the default template engine
+// Set up sessions
+const sess = {
+  secret: 'Super secret secret',
+  resave: false,
+  saveUninitialized: true,
+};
+app.use(session(sess));
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-//middleware
+//import sequelize connection
+const sequelize = require('./config/connection');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
