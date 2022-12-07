@@ -1,7 +1,8 @@
 [
     {
       "name": "TV",
-      "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing."
+      "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing.",
+      "comments": "Nice post!"
     },
     {
         "name": "Laptop",
