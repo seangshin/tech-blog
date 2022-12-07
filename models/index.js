@@ -23,17 +23,13 @@ Post.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-Comment.belongsTo(User, {
-  forignKey: 'user_id'
-});
-
-Comment.belongsTo(Post, {
-  forignKey: 'post_id'
-});
-
 Comment.belongsTo(Post, {
   foreignKey: 'post_id',
   onDelete: 'CASCADE'
+});
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
 module.exports = { User, Post , Comment};
