@@ -15,6 +15,30 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    // get current comments
+    // const currentComments = await Post.findByPk(req.params.id, {
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
+    console.log('test');
+
+    // const postData = await Post.update({
+    //   ...req.body,
+    //   user_id: req.session.user_id,
+    // });
+
+    // res.status(200).json(newPost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({

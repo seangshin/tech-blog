@@ -7,4 +7,14 @@
   {{else}}
   <p>No comments</p>
   {{/if}}
+
+  <form class="form new-comment-form">
+    <div class="form-group">
+      <label for="post-comments">Add a comment:</label>
+      <input class="form-input" type="text" id="comments" name="post-comments" />
+      <button class="btn btn-primary submitBtn" type="submit" data-id="{{id}}">Submit</button>
+    </div>
+  </form>
 </div>
+
+<script src="/post.js"></script>
