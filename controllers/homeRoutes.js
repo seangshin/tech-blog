@@ -1,24 +1,49 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
-    const postData = await Post.findAll({
+    const postData = await Comment.findAll({
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Post,
+          attributes: ['name'],
+        },
+        {
+          model: Post,
+          attributes: ['description'],
+        },
+        {
+          model: Post,
+          attributes: ['date_created'],
+        },
       ],
     });
+    // Get all comments and JOIN with user data
+    // const commentData = await Comment.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
 
     //Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    //const posts = postData.map((post) => post.get({ plain: true }));
+    
+    const comments = postData.map((comment) => comment.get({ plain: true }));
+    console.log(comments);
 
     res.render('homepage', {
-      posts,
+      //posts,
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
