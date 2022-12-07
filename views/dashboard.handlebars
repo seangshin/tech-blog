@@ -8,13 +8,13 @@
   <div class="col-md-6">
     <h3>Create a new post:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-post-form">
       <div class="form-group">
-        <label for="project-name">Post name:</label>
+        <label for="post-name">Post name:</label>
         <input class="form-input" type="text" id="post-name" name="post-name" />
       </div>
       <div class="form-group">
-        <label for="project-desc">description:</label>
+        <label for="post-desc">description:</label>
         <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
       </div>
       <div class="form-group">
@@ -24,7 +24,7 @@
   </div>
 
   {{#if posts.length}}
-  <div class="col-md-6 project-list">
+  <div class="col-md-6 post-list">
     <h3>Current Posts:</h3>
 
     {{#each posts as |post|}}
@@ -40,3 +40,5 @@
   </div>
   {{/if}}
 </div>
+
+<script src="/dashboard.js"></script>

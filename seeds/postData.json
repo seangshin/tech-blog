@@ -1,17 +1,14 @@
 [
     {
       "name": "TV",
-      "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing.",
-      "price": "800"
+      "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing."
     },
     {
         "name": "Laptop",
-        "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing.",
-        "price": "400"
+        "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing."
     },
     {
         "name": "Shoes",
-        "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing.",
-        "price": "50"
+        "description": "Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing. Text to describe the listing."
     }
   ]
