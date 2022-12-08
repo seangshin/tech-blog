@@ -2,21 +2,21 @@ const router = require('express').Router();
 const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// router.get('/', async (req, res) => {
-//     try {
-//       // Get all comments and JOIN with user data
-//       const commentData = await Comment.findAll({
-//         include: [{ model: User }, { model: Post }],
-//       });
+router.get('/', async (req, res) => {
+    try {
+      // Get all comments and JOIN with user data
+      const commentData = await Comment.findAll({
+        include: [{ model: User }, { model: Post }],
+      });
   
-//       //Serialize data so the template can read it
-//       const comments = commentData.map((comment) => comment.get({ plain: true }));
-//       console.log(comments);
-//       res.status(200);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+      //Serialize data so the template can read it
+      const comments = commentData.map((comment) => comment.get({ plain: true }));
+      console.log(comments);
+      res.status(200);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 router.post('/', withAuth, async (req, res) => {
   try {
