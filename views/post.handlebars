@@ -3,7 +3,10 @@
   <p>{{description}}</p>
   <p>Posted by {{user.name}}</p>
   {{#if comments.length}}
-  <p>Comments: {{comments}}</p>
+  <p>Comments:</p>
+  {{#each comments as |comment|}}
+  <p>{{comments.content}}</p>
+  {{/each}}
   {{else}}
   <p>No comments</p>
   {{/if}}
