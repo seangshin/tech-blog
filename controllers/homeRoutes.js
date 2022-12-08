@@ -28,14 +28,6 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    //add logic to check user_id of each comment and match to user name
-    console.log(post);//debug
-    if(!post.comments.length) {
-      // for(let i=0; i<comments.length; i++) {
-      //   const current = "comment" + i;
-      // }
-    }
-
     res.render('post', {
       ...post,
       logged_in: req.session.logged_in
