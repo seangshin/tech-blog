@@ -17,28 +17,16 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    // get current comments
-    const currentComments = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    const postData = await Post.update({
+      ...req.body,
+      user_id: req.session.user_id,
+    }, {
+      where: {
+        id: req.params.id,
+      }
     });
 
-    const comments = currentComments.get({ plain: true });
-
-    //serialize data
-    console.log(comments);
-    res.status(200).json(comments);
-
-    // const postData = await Post.update({
-    //   ...req.body,
-    //   user_id: req.session.user_id,
-    // });
-
-    // res.status(200).json(newPost);
+    res.status(200).json(postData);
   } catch (err) {
     res.status(400).json(err);
   }
