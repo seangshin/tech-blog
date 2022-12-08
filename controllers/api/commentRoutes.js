@@ -2,24 +2,25 @@ const router = require('express').Router();
 const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
-    try {
-      // Get all comments and JOIN with user data
-      const commentData = await Comment.findAll({
-        include: [{ model: User }, { model: Post }],
-      });
+// router.get('/', async (req, res) => {
+//     try {
+//       // Get all comments and JOIN with user data
+//       const commentData = await Comment.findAll({
+//         include: [{ model: User }, { model: Post }],
+//       });
   
-      //Serialize data so the template can read it
-      const comments = commentData.map((comment) => comment.get({ plain: true }));
-      console.log(comments);
-      res.status(200);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+//       //Serialize data so the template can read it
+//       const comments = commentData.map((comment) => comment.get({ plain: true }));
+//       console.log(comments);
+//       res.status(200);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
 router.post('/', withAuth, async (req, res) => {
   try {
+    console.log(req.body);
     const newComment = await Comment.create({
       ...req.body,
       user_id: req.session.user_id,
@@ -31,34 +32,34 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
-  try {
-    // get current comments
-    const currentComments = await Comment.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+// router.put('/:id', withAuth, async (req, res) => {
+//   try {
+//     // get current comments
+//     const currentComments = await Comment.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
 
-    const comments = currentComments.get({ plain: true });
+//     const comments = currentComments.get({ plain: true });
 
-    //serialize data
-    console.log(comments);
-    res.status(200).json(comments);
+//     //serialize data
+//     console.log(comments);
+//     res.status(200).json(comments);
 
-    // const postData = await Post.update({
-    //   ...req.body,
-    //   user_id: req.session.user_id,
-    // });
+//     // const postData = await Post.update({
+//     //   ...req.body,
+//     //   user_id: req.session.user_id,
+//     // });
 
-    // res.status(200).json(newPost);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     // res.status(200).json(newPost);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
