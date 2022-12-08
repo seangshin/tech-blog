@@ -1,17 +1,12 @@
 const router = require('express').Router();
-const { Comment, User } = require('../../models');
+const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
       // Get all comments and JOIN with user data
       const commentData = await Comment.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
+        include: [{ model: User }, { model: Post }],
       });
   
       //Serialize data so the template can read it
