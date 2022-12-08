@@ -1,11 +1,14 @@
 <div class="text-center">
   <h1>{{name}}</h1>
   <p>{{description}}</p>
-  <p>Posted by {{user.name}}</p>
+  <p>Posted by {{user.name}} on {{date_created}}</p>
   {{#if comments.length}}
+</div>
+<div>
   <p>Comments:</p>
   {{#each comments as |comment|}}
-  <p>{{comments.content}}</p>
+  <p>Comment from {{user_id}} on {{comment.date_created}}</p>
+  <p>{{comment.content}}</p>
   {{/each}}
   {{else}}
   <p>No comments</p>
@@ -19,5 +22,6 @@
     </div>
   </form>
 </div>
+  
 
 <script src="/post.js"></script>
