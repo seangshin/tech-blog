@@ -5,7 +5,7 @@
 The motivation of this project is to build a Content Management System (CMS) blog site, where developers can publish their blog posts and comments on other developer's posts as well. The application complies with the Model View Controller (MVC) architecture and performs RESTful CRUD operations. It uses Handlebars.js as the templating language, Sequelize as the Object Relational Mapper (ORM), and the express-session npm package for authentication. The application also includes login and logout features to store user session data as a cookie and uses the dotenv and bcrypt packages to support data/password protection. The application is deployed to Heroku per below link.
 
 ![](/screenshot.JPG)
-Link to deployed application: https://git.heroku.com/guarded-depths-62551.git
+Link to deployed application: https://guarded-depths-62551.herokuapp.com/
 
 ## Installation
 
