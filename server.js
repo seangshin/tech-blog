@@ -2,15 +2,18 @@
 const express = require('express');
 const path = require('path');
 const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
 //Import express-handlebars
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });// Set up Handlebars.js engine with custom helpers
 const session = require('express-session');
 
 //Set up for express app
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+
 
 // Set up sessions
 const sess = {
