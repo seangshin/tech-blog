@@ -39,29 +39,6 @@ const newFormHandler = async (event) => {
         alert('Failed to delete post');
       }
     }
-
-    if (event.target.hasAttribute('update-id')) {
-      const name = document.querySelector('#post-name-updates').value.trim();
-      const description = document.querySelector('#post-desc-updates').value.trim();
-      const id = event.target.getAttribute('update-id');
-
-      alert(`id: ${id} name: ${name} desc:${description}`);//debug
-
-      const response = await fetch(`/api/posts/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, description }),
-      });
-  
-      if (response.ok) {
-        document.location.replace('/dashboard');
-        alert('post updated');
-      } else {
-        alert('Failed to update post');
-      }
-    }
   };
   
   if(document.querySelector('.new-post-form') != null) {
