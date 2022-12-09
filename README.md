@@ -11,9 +11,11 @@ Link to deployed application: https://guarded-depths-62551.herokuapp.com/
 
 The following tools were used for the development and testing of this project. Code development IDE (Microsoft VS Code) node.js (JavaScript runtime environment) npm (software registry containing mysql2, express, express-handlebars, express-session, bcrypt, dotenv and sequelize).
 
+The following link gives the overview of JawsDB add-on required to provide a fully functional MySQL database server for use with Heroku: https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql
+
 ## Usage
 
-Use npm commands to install npm packages. Use MySQL commands to source the database. Use npm commands to seed data and run the server. Run the following npm command: 
+For development: Use npm commands to install npm packages. Use MySQL commands to source the database. Use npm commands to seed data and run the server. Run the following npm command: 
 
 $ heroku local web
 
