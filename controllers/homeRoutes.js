@@ -28,6 +28,24 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
+    // const commentData = await Comment.findAll({
+    //   include: [{ model: User }, { model: Post }],
+    // });
+
+    // const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+    // console.log('post', post);//debug
+
+    // console.log(" comments", comments);
+    
+    // const matchComments = comments.map((comment) => {
+    //   if (req.session.user_id == comment.user.id) {
+    //     return comment.user.name;
+    //   }
+    // });
+
+    // console.log(" filtered comments", matchComments);
+
     //check if post belongs to user
     let match = false;
     if (req.session.user_id == post.user_id) {
@@ -50,7 +68,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+      include: [{ model: Post },],
     });
 
     const user = userData.get({ plain: true });
