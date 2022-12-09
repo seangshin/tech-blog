@@ -28,9 +28,16 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
+    //check if post belongs to user
+    let match = false;
+    if (req.session.user_id == post.user_id) {
+      match = true;
+    }
+
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      match
     });
   } catch (err) {
     res.status(500).json(err);
